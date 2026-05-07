@@ -1,19 +1,22 @@
 import { Howl } from 'howler';
-import { SLIDES, SongConfig } from './constants';
+import { SLIDES } from './constants';
 
 export const audioCache: Record<string, Howl> = {};
-let isLoaded = false;
 
-export const initAudio = (onProgress?: (progress: number) => void) => {
-  if (isLoaded) return;
-
+export const initAudio = (onProgress: (p: number) => void) => {
   let loadedCount = 0;
   const total = SLIDES.length;
 
   SLIDES.forEach((song) => {
+    if (audioCache[song.id]) {
+      loadedCount++;
+      onProgress(loadedCount / total);
+      return;
+    }
+
     const howl = new Howl({
       src: [song.url],
-      html5: true,
+      html5: false, 
       preload: true,
       volume: 0,
       loop: true,
@@ -22,10 +25,13 @@ export const initAudio = (onProgress?: (progress: number) => void) => {
       },
       onload: () => {
         loadedCount++;
-        if (onProgress) onProgress(loadedCount / total);
-        if (loadedCount === total) isLoaded = true;
+        onProgress(loadedCount / total);
       },
-      onloaderror: (id, err) => console.error(`Error loading ${song.url}:`, err)
+      onloaderror: (id, err) => {
+        console.error(`Audio error ${song.url}:`, err);
+        loadedCount++;
+        onProgress(loadedCount / total);
+      }
     });
     audioCache[song.id] = howl;
   });

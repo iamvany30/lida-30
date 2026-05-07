@@ -31,7 +31,14 @@ export default function App() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, filter: "blur(10px)", scale: 1.1 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            onClick={() => loadProgress === 1 && setStarted(true)}
+            onClick={() => {
+              if (loadProgress === 1) {
+                setStarted(true);
+                if (Howler.ctx && Howler.ctx.state === 'suspended') {
+                  Howler.ctx.resume();
+                }
+              }
+            }}
             className={`fixed inset-0 z-[1000] flex items-center justify-center bg-[#0a0a0a] group ${loadProgress === 1 ? 'cursor-pointer' : 'cursor-wait'}`}
           >
             <div className="crt-overlay crt-scanlines" />
