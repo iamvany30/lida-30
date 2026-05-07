@@ -17,7 +17,7 @@ import { useAudioLoop } from "./useAudioLoop";
 
 // --- Точка входа с загрузочным экраном ---
 export default function App() {
-  const [started, setStarted] = useState(false);
+  const[started, setStarted] = useState(false);
 
   return (
     <>
@@ -307,7 +307,7 @@ function MainContent() {
           {/* Индикатор скролла вниз (Идеально по центру) */}
           <motion.div 
             className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer group z-50 pointer-events-auto"
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y:[0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             onClick={() => goToSlide(currentSlide + 1)}
           >
@@ -348,11 +348,11 @@ function MainContent() {
             </div>
 
             <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="absolute top-4 sm:top-10 left-2 sm:left-20 z-10">
-              <PhotoPlaceholder src="/assets/rave_01.jpg" label="RAVE_01.JPG" className="w-28 h-36 sm:w-56 sm:h-64" tilt="-10deg" onPlaySound={playGlitchSound} />
+              <PhotoPlaceholder src="./assets/rave_01.jpg" label="RAVE_01.JPG" className="w-28 h-36 sm:w-56 sm:h-64" tilt="-10deg" onPlaySound={playGlitchSound} />
             </motion.div>
             
             <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }} className="absolute bottom-4 sm:bottom-10 right-2 sm:right-20 z-10">
-              <PhotoPlaceholder src="/assets/live_moscow.jpg" label="LIVE_MOSCOW.JPG" className="w-32 h-40 sm:w-64 sm:h-72" tilt="8deg" onPlaySound={playGlitchSound} />
+              <PhotoPlaceholder src="./assets/live_moscow.jpg" label="LIVE_MOSCOW.JPG" className="w-32 h-40 sm:w-64 sm:h-72" tilt="8deg" onPlaySound={playGlitchSound} />
             </motion.div>
           </div>
         </Slide>
@@ -393,7 +393,7 @@ function MainContent() {
             <div className="w-full lg:flex-1 flex justify-center py-4 sm:py-4">
               <ScrollReveal delay={0.6}>
                 <PhotoPlaceholder 
-                  src="/assets/lida_portrait.jpg"
+                  src="./assets/lida_portrait.jpg"
                   label="FILE_01_LIDA.JPG" 
                   className="w-[180px] h-[240px] sm:w-[350px] sm:h-[450px]" 
                   tilt="2deg" 
@@ -407,7 +407,10 @@ function MainContent() {
         {/* SLIDE 4: Joke Slide */}
         <Slide className="overflow-y-auto no-scrollbar">
           <div className="w-full max-w-6xl mx-auto z-10 font-mono flex flex-col items-center justify-center text-center py-10 sm:py-16 px-4 pr-10 sm:pr-20 relative min-h-[100dvh]">
-            <div className="absolute inset-0 bg-[#00ff00] mix-blend-overlay opacity-10 blur-3xl pointer-events-none" />
+            
+            {/* ИСПРАВЛЕННЫЙ БЛЮР */}
+            {/* Вместо сплошной заливки используется радиальный градиент и scale-150, чтобы края размытия уходили за пределы видимости */}
+            <div className="absolute inset-0 scale-150 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#00ff0030] via-[#00ff0005] to-transparent opacity-60 blur-3xl pointer-events-none" />
             
             <ScrollReveal>
               <p className="text-base sm:text-2xl lg:text-3xl text-gray-300 font-bold leading-relaxed mb-4 sm:mb-6 font-display">
@@ -431,7 +434,7 @@ function MainContent() {
               <div className="relative group cursor-pointer my-6 sm:my-8 z-30 inline-block" onClick={() => playGlitchSound()}>
                 <div className="absolute inset-0 bg-[#ff00ff] mix-blend-difference opacity-0 group-hover:opacity-50 transition-opacity pointer-events-none z-20" />
                 <img 
-                  src="/assets/slide_4_kyrgyzstan.png" 
+                  src="./assets/slide_4_kyrgyzstan.png" 
                   alt="Кыргызстан" 
                   className="w-48 sm:w-72 md:w-96 h-auto object-cover border-4 border-white brutalist-shadow-purple transform rotate-2 group-hover:-rotate-1 group-hover:scale-105 transition-all duration-300 relative z-10 bg-black"
                 />
@@ -448,7 +451,7 @@ function MainContent() {
 
         {/* SLIDE 5: Final Note */}
         <Slide className="overflow-y-auto no-scrollbar py-20 pr-12 sm:pr-16">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ff00ff20] via-transparent to-transparent opacity-50 blur-xl mix-blend-screen pointer-events-none" />
+          <div className="absolute inset-0 scale-150 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ff00ff20] via-transparent to-transparent opacity-50 blur-xl mix-blend-screen pointer-events-none" />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
