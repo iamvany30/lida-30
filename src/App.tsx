@@ -524,7 +524,7 @@ function MainContent() {
             className="absolute bottom-4 sm:bottom-6 right-4 sm:right-8 text-[10px] sm:text-xs text-gray-400 font-mono border border-gray-600 bg-black/80 backdrop-blur-md px-2 sm:px-4 py-2 brutalist-shadow-purple hover:text-white hover:border-[#ff00ff] transition-colors z-50 cursor-default flex items-center gap-1 sm:gap-2"
           >
             <span className="text-[#ff00ff] font-bold">{"//"}</span> 
-            <span className="tracking-wider whitespace-nowrap">by iamvany20 :]</span>
+            <span className="tracking-wider whitespace-nowrap">by iamvany20 :] from Sakhalin</span>
           </motion.div>
         </Slide>
 
