@@ -7,58 +7,59 @@ export interface SongConfig {
   volume: number;
   fade?: number;
   lowPass?: number;
-  reverb?: boolean;
   url: string; 
 }
 
-export const SLIDES: SongConfig[] =[
+export const SLIDES: SongConfig[] = [
   {
     id: "intro",
     artist: "LIDA",
-    description: "Intro / Energy",
-    loopStart: 18,
-    loopEnd: 36,
-    volume: 0.7,
-    fade: 200,
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    description: "Intro",
+    loopStart: 10,
+    loopEnd: 50,
+    volume: 0.8, // Базовая громкость
+    fade: 2000,
+    url: "/audio/intro.mp3",
   },
   {
     id: "macros",
     artist: "LIDA",
-    description: "Macros and Bass",
-    loopStart: 28,
-    loopEnd: 52,
-    volume: 0.9,
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", 
+    description: "Energy",
+    loopStart: 0,
+    loopEnd: 70,
+    volume: 0.8,
+    fade: 2000,
+    url: "/audio/macros.mp3",
   },
   {
     id: "message",
     artist: "LIDA",
-    description: "Personal Message",
-    loopStart: 22,
-    loopEnd: 44,
-    volume: 0.45,
+    description: "Message",
+    loopStart: 0,
+    loopEnd: 60,
+    volume: 0.6, // Чуть тише для чтения длинного текста
+    fade: 3000,
     lowPass: 8000,
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    url: "/audio/message.mp3",
   },
   {
     id: "kyrgyzstan",
     artist: "LIDA",
-    description: "Bank Worker's Day",
-    loopStart: 15,
-    loopEnd: 33,
+    description: "Joke",
+    loopStart: 5,
+    loopEnd: 45,
     volume: 0.8,
-    fade: 150,
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+    fade: 1500,
+    url: "/audio/kyrgyzstan.mp3",
   },
   {
     id: "final",
     artist: "LIDA",
-    description: "Final / LIDA 30",
-    loopStart: 50,
-    loopEnd: 70,
-    volume: 0.85,
-    reverb: true,
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
+    description: "Final",
+    loopStart: 40,
+    loopEnd: 120,
+    volume: 0.8,
+    fade: 2500,
+    url: "/audio/final.mp3",
   },
 ];

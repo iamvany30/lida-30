@@ -4,7 +4,7 @@ import { SongConfig } from './constants';
 
 let globalIsMuted = false;
 
-export function useAudioLoop(config: SongConfig | null) {
+export function useAudioLoop(config: SongConfig | null, onComplete?: () => void, isLastSlide?: boolean) {
   const howlRef = useRef<Howl | null>(null);
   const [isMuted, setIsMuted] = useState(globalIsMuted);
 
@@ -12,7 +12,6 @@ export function useAudioLoop(config: SongConfig | null) {
     if (!config) return;
 
     if (howlRef.current) {
-      howlRef.current.off('stop');
       howlRef.current.stop();
       howlRef.current.unload();
     }
@@ -24,9 +23,10 @@ export function useAudioLoop(config: SongConfig | null) {
       src: [config.url],
       html5: false,
       sprite: {
-        segment:[startMs, durationMs, true]
+        // Если это последний слайд — включаем loop внутри спрайта (3-й параметр true)
+        segment: [startMs, durationMs, isLastSlide ? true : false]
       },
-      volume: config.volume,
+      volume: 0,
       onload: () => {
         if (config.lowPass) {
           try {
@@ -35,7 +35,6 @@ export function useAudioLoop(config: SongConfig | null) {
               const filter = ctx.createBiquadFilter();
               filter.type = 'lowpass';
               filter.frequency.value = config.lowPass;
-              
               const node = (newHowl as any)._sounds[0]?._node;
               if (node) {
                 node.disconnect();
@@ -43,23 +42,28 @@ export function useAudioLoop(config: SongConfig | null) {
                 filter.connect(ctx.destination);
               }
             }
-          } catch (e) {
-            console.error('Failed to setup audio filter:', e);
-          }
+          } catch (e) { console.error(e); }
+        }
+      },
+      onplay: () => {
+        newHowl.fade(0, config.volume, config.fade || 2000);
+      },
+      onend: () => {
+        // Вызываем переход, только если это НЕ последний слайд
+        if (!isLastSlide && onComplete) {
+          onComplete();
         }
       }
     });
 
     howlRef.current = newHowl;
-    
-    
     newHowl.play('segment');
 
     return () => {
       newHowl.stop();
       newHowl.unload();
     };
-  }, [config?.id, config?.url]);
+  }, [config?.id, config?.url, isLastSlide]); // Добавили isLastSlide в зависимости
 
   const toggleMute = () => {
     globalIsMuted = !globalIsMuted;
@@ -67,11 +71,8 @@ export function useAudioLoop(config: SongConfig | null) {
     Howler.mute(globalIsMuted);
   };
 
-  
   const forcePlay = () => {
-    if (Howler.ctx && Howler.ctx.state === 'suspended') {
-      Howler.ctx.resume();
-    }
+    if (Howler.ctx && Howler.ctx.state === 'suspended') Howler.ctx.resume();
     if (howlRef.current && !howlRef.current.playing()) {
       howlRef.current.play('segment');
     }
@@ -79,7 +80,7 @@ export function useAudioLoop(config: SongConfig | null) {
 
   useEffect(() => {
     Howler.mute(globalIsMuted);
-  },[]);
+  }, []);
 
   return { isMuted, toggleMute, forcePlay };
 }
