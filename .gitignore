@@ -1,7 +1,8 @@
-node_modules/
-build/
-coverage/
+# Файл: .gitignore
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
 .DS_Store
-*.log
-.env*
-!.env.example

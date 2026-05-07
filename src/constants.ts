@@ -19,7 +19,7 @@ export const SLIDES: SongConfig[] = [
     loopEnd: 50,
     volume: 0.8, // Базовая громкость
     fade: 2000,
-    url: "/audio/intro.mp3",
+    url: "audio/intro.mp3",
   },
   {
     id: "macros",
@@ -29,7 +29,7 @@ export const SLIDES: SongConfig[] = [
     loopEnd: 70,
     volume: 0.8,
     fade: 2000,
-    url: "/audio/macros.mp3",
+    url: "audio/macros.mp3",
   },
   {
     id: "message",
@@ -40,7 +40,7 @@ export const SLIDES: SongConfig[] = [
     volume: 0.6, // Чуть тише для чтения длинного текста
     fade: 3000,
     lowPass: 8000,
-    url: "/audio/message.mp3",
+    url: "audio/message.mp3",
   },
   {
     id: "kyrgyzstan",
@@ -50,7 +50,7 @@ export const SLIDES: SongConfig[] = [
     loopEnd: 45,
     volume: 0.8,
     fade: 1500,
-    url: "/audio/kyrgyzstan.mp3",
+    url: "audio/kyrgyzstan.mp3",
   },
   {
     id: "final",
@@ -60,6 +60,6 @@ export const SLIDES: SongConfig[] = [
     loopEnd: 120,
     volume: 0.8,
     fade: 2500,
-    url: "/audio/final.mp3",
+    url: "audio/final.mp3",
   },
 ];
