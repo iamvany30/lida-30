@@ -1,3 +1,4 @@
+// Файл: src/constants.ts
 export interface SongConfig {
   id: string;
   artist: string;
@@ -8,16 +9,17 @@ export interface SongConfig {
   fade?: number;
   lowPass?: number;
   url: string; 
+  loop?: boolean; // <-- Добавили новый параметр
 }
 
-export const SLIDES: SongConfig[] = [
+export const SLIDES: SongConfig[] =[
   {
     id: "intro",
     artist: "LIDA",
     description: "Intro",
     loopStart: 10,
     loopEnd: 50,
-    volume: 0.8, // Базовая громкость
+    volume: 0.8,
     fade: 2000,
     url: "audio/intro.mp3",
   },
@@ -37,7 +39,7 @@ export const SLIDES: SongConfig[] = [
     description: "Message",
     loopStart: 0,
     loopEnd: 60,
-    volume: 0.6, // Чуть тише для чтения длинного текста
+    volume: 0.6, 
     fade: 3000,
     lowPass: 8000,
     url: "audio/message.mp3",
@@ -56,10 +58,11 @@ export const SLIDES: SongConfig[] = [
     id: "final",
     artist: "LIDA",
     description: "Final",
-    loopStart: 40,
-    loopEnd: 120,
+    loopStart: 0,
+    loopEnd: 0,
     volume: 0.8,
     fade: 2500,
     url: "audio/final.mp3",
+    loop: false
   },
 ];
