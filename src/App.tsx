@@ -502,7 +502,7 @@ function MainContent() {
                   <p className="text-[10px] sm:text-sm font-mono font-bold uppercase text-[#00ff00] flex items-center gap-2"><Skull size={16} /> что по итогу?</p>
                   <div className="text-[9px] sm:text-[10px] text-white/50 bg-black px-2 py-1 border border-white/20">сиськи</div>
                 </div>
-                <p className="text-base sm:text-2xl text-white font-display font-medium italic">уровень 30 пройден. <br/><span className="text-[#ff00ff] font-black">дальше — полный пиздец.</span></p>
+                <p className="text-base sm:text-2xl text-white font-display font-medium italic">уровень 31 пройден. <br/><span className="text-[#ff00ff] font-black">дальше — полный пиздец.</span></p>
               </div>
               <p className="text-[#00ff00] text-sm sm:text-2xl tracking-widest font-black uppercase bg-[#00ff00]/10 border border-[#00ff00] inline-block px-4 sm:px-6 py-2 hover:bg-[#00ff00]/20 transition-colors cursor-default">С ДНЁМ РОЖДЕНИЯ, КОЛЯ</p>
               <p className="text-gray-500 text-[10px] sm:text-sm mt-4 sm:mt-6 font-bold">(тортик можно крутить)</p>
