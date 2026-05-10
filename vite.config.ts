@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
-  base: "/lida-30/",
+  base: "/lida-31/",
   plugins:[react(), tailwindcss()],
   resolve: {
     alias: {

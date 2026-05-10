@@ -327,9 +327,9 @@ function MainContent() {
               <h1 
                 className="glitch-text text-[4.5rem] leading-[0.85] sm:text-[110px] md:text-[160px] lg:text-[200px] font-black uppercase text-transparent text-center"
                 style={{ WebkitTextStroke: '2px #ff00ff', textShadow: '4px 4px 0px #7000ff' }}
-                data-text="LIDA 30"
+                data-text="LIDA 31"
               >
-                LIDA 30
+                LIDA 31
               </h1>
             </div>
             
@@ -340,7 +340,7 @@ function MainContent() {
               className="mt-4 sm:mt-8 flex flex-col items-center text-center gap-2 sm:gap-4 w-full"
             >
               <span className="text-[#00ff00] font-mono text-sm sm:text-xl lg:text-3xl tracking-[0.1em] sm:tracking-[0.2em] lowercase drop-shadow-[0_0_10px_rgba(0,255,0,0.5)]">
-                тебе 30, но ты всё ещё
+                тебе 31, но ты всё ещё
               </span>
               <span 
                 className="text-black bg-[#00ff00] font-mono font-black text-sm sm:text-xl lg:text-3xl tracking-[0.05em] sm:tracking-[0.1em] lowercase px-3 py-1"
@@ -776,7 +776,7 @@ function StylizedCake() {
           fontWeight="900"
           rotation={[0, 0, -0.05]}
         >
-          30
+          31
         </Text>
 
         {/* СВЕЧА */}
