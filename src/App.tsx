@@ -419,7 +419,7 @@ function MainContent() {
             >
               <ScrollReveal><p className="text-[#00ff00] font-bold border-b border-[#00ff00]/30 pb-2 sm:pb-4 mb-2 sm:mb-4 text-[10px] sm:text-base">[{">"}] _message_incoming</p></ScrollReveal>
               <ScrollReveal delay={0.2}><p className="text-gray-300 text-xs sm:text-base md:text-lg lg:text-xl leading-relaxed">слушай, Колян.</p></ScrollReveal>
-              <ScrollReveal delay={0.3}><p className="text-gray-300 text-xs sm:text-base md:text-lg lg:text-xl leading-relaxed">тебе 30. это какая-то странная цифра, которая вообще не вяжется с тем хаосом и энергией, которую ты стабильно выдаёшь на каждом дропе.</p></ScrollReveal>
+              <ScrollReveal delay={0.3}><p className="text-gray-300 text-xs sm:text-base md:text-lg lg:text-xl leading-relaxed">тебе 31. это какая-то странная цифра, которая вообще не вяжется с тем хаосом и энергией, которую ты стабильно выдаёшь на каждом дропе.</p></ScrollReveal>
               <ScrollReveal delay={0.4}>
                 <div 
                   className="bg-[#ff00ff] text-black font-display font-black text-sm sm:text-2xl lg:text-3xl p-3 sm:p-4 my-4 sm:my-6 brutalist-shadow-purple cursor-default"
