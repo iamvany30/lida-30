@@ -764,7 +764,6 @@ function StylizedCake() {
           </mesh>
         </group>
 
-        {/* ТЕКСТ 30 */}
         <Text 
           ref={textRef}
           position={[0, 3.8, 1.3]} 
@@ -779,7 +778,6 @@ function StylizedCake() {
           31
         </Text>
 
-        {/* СВЕЧА */}
         <mesh position={[0, 3.5, 0]}>
           <cylinderGeometry args={[0.08, 0.1, 1, 16]} />
           <meshStandardMaterial color="#ffffff" roughness={0.4} metalness={0.1} emissive="#222" />
